@@ -4,25 +4,20 @@
 int main(int argc, char *argv[])
 {
    FILE* fp;
+   char c;
    
-   char str[100];//공간이야~~ 
-   int i;
-   
-   fp = fopen("sample.txt","w");
-   
-   for(i=0;i<3;i++)
+   fp = fopen("sample.txt","r");
+   if (fp == NULL)
    {
-        printf("input a word: ");
-        scanf("%s",str);// & 안 써도 됩니다요 
+          printf("failed to open\n");
+          return 0;
+   }
    
-        fprintf(fp, "%s\n", str);//fp 
-        }
-   
-   
-   
-   
+   while ((c=fgetc(fp)) != EOF)//오잉?음... 
+   {
+         putchar(c);
+   }      
    fclose(fp);
-   
    
   system("PAUSE");	
   return 0;
